@@ -38,14 +38,12 @@ Ce projet respecte les critères demandés:
 
 - [x] **Au moins 3 contrôleurs**, ce projet contien 4 controlleurs: textController,UserController,PdfController,RoleController.  
 - [x] **Base de données** avec :  
-  - Une relation **1,n**, est la relation entre User et Text dans la base de donnes
-  - Une relation **n,n**, gérées au niveau des modèles.  
-- [x] **Middleware** personnalisé appliqué sur une route ou un contrôleur.  
-- [x] **Validation des formulaires** côté back-end.  
-- [x] **Gestion des vues avec Blade** (optionnel : Vue.js ou React en complément).  
-- [x] **Dashboard avec un bouton de génération de rapport en PDF**.  
-- [x] **Bouton d'importation/exportation de fichiers Excel (.xls / .csv) sur une page index**.  
-- [x] **Système d'authentification** (mentionné dans la documentation).  
+  - Une relation **1,n**, est la relation entre Users et Texts dans la base de donnes
+  - Une relation **n,n**, est la relation entre Users et roles dont il exist une table intermidiaire.  
+- [x] **Middleware** ,J'ai Utilisee Le middleware 'auth:Sanctum' pour verifier l'authentification.  
+- [x] **Validation des formulaires**, chaque text et chaque pdf telecharger par l'utilisateur a une verification cote-backend.  
+- [x] **Gestion des vues avec Blade**, le front-end a ete cree avec React js. 
+- [x] **Système d'authentification** , un system qui permet d'utilisateurs de creer ou acceder a ses comptes personnels.  
 - [x] **Test unitaire** sur au moins un contrôleur.  
 
 ### Execution**
