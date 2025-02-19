@@ -62,11 +62,7 @@ class UserController extends Controller
         }
         return response()->json(['message' => 'you are not Authenticated'],401);
     }
-
-    public function getUserTexts($userId)
-    {
-        return User::with('texts')->find($userId);
-    }
+ 
 
     public function admin(){
         return response()->json(['message' => 'Admin Dashboard']);
