@@ -71,7 +71,7 @@ AI Text Detector est une application Web qui permet aux utilisateurs de détecte
    ```
 
 ### **Frontend (React)**
-1. C:\Users\ameur\Desktop\aiDetector\screens\home.jpg
+1. (./screens/home.jpg)
 
 ## Contributors
 - **Ameur**
