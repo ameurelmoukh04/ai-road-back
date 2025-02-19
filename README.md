@@ -33,7 +33,20 @@ AI Text Detector est une application Web qui permet aux utilisateurs de détecte
 - **PDF Text Extraction** a l'aide du package `smalot/pdfparser`.
 - **Algorithme de détection de texte IA** (l'intégration avec l'API OpenAI gpt-3.5-turbo).
 
+## Exigences du projet  
+Ce projet respecte les critères demandés:  
 
+- [x] **Au moins 3 contrôleurs**, ce projet contien 4 controlleurs: textController,UserController,PdfController,RoleController.  
+- [x] **Base de données** avec :  
+  - Une relation **1,n**, est la relation entre User et Text dans la base de donnes
+  - Une relation **n,n**, gérées au niveau des modèles.  
+- [x] **Middleware** personnalisé appliqué sur une route ou un contrôleur.  
+- [x] **Validation des formulaires** côté back-end.  
+- [x] **Gestion des vues avec Blade** (optionnel : Vue.js ou React en complément).  
+- [x] **Dashboard avec un bouton de génération de rapport en PDF**.  
+- [x] **Bouton d'importation/exportation de fichiers Excel (.xls / .csv) sur une page index**.  
+- [x] **Système d'authentification** (mentionné dans la documentation).  
+- [x] **Test unitaire** sur au moins un contrôleur.  
 
 ### Execution**
 
