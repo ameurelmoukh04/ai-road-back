@@ -37,35 +37,35 @@ AI Text Detector est une application Web qui permet aux utilisateurs de détecte
 
 ### Execution**
 
-1. page d'accueil
+1. ##page d'accueil##
 ![Home Page](./screens/home.jpg)
 
 2. Page Detection Text IA
-![Home Page](./screens/check-1.jpg)
+![Check Text Page](./screens/check-1.jpg)
 
 3. Page Detection Text IA
-![Home Page](./screens/check-2.jpg)
+![Check Text Page](./screens/check-2.jpg)
 
 4. Page Detection Text IA
-![Home Page](./screens/check-3.jpg)
+![Check Text Page](./screens/check-3.jpg)
 
 5. Page Authentification : Login
-![Home Page](./screens/login-1.jpg)
+![Authentication Page](./screens/login-1.jpg)
 
 6. Page Authentification : apres saisir les infos
-![Home Page](./screens/login-2.jpg)
+![Authentication Page](./screens/login-2.jpg)
 
 7. Page Authentification : Register
-![Home Page](./screens/register.jpg)
+![Authentication Page](./screens/register.jpg)
 
 8. Page Scan Pdf
-![Home Page](./screens/scan-1.jpg)
+![PDF Scan Page](./screens/scan-1.jpg)
 
 9. Page Scan Pdf apres telecharger fichier
-![Home Page](./screens/scan-3.jpg)
+![PDF Scan Page](./screens/scan-3.jpg)
 
 10. Page Scan Pdf
-![Home Page](./screens/scan-2.jpg)
+![PDF Scan Page](./screens/scan-2.jpg)
 
 ## Contributors
 - **Ameur**
