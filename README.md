@@ -36,8 +36,18 @@ AI Text Detector est une application Web qui permet aux utilisateurs de détecte
 
 
 ### Execution**
+
 1. page d'accueil
 ![Home Page](./screens/home.jpg)
+
+2. Page Detection Text IA
+![Home Page](./screens/check-1.jpg)
+
+3. Page Detection Text IA
+![Home Page](./screens/check-2.jpg)
+
+4. Page Detection Text IA
+![Home Page](./screens/check-3.jpg)
 
 ## Contributors
 - **Ameur**
