@@ -35,42 +35,8 @@ AI Text Detector est une application Web qui permet aux utilisateurs de détecte
 
 
 
-### **
-
-
-
-## Installation & Setup
-### **Requirements**
-- Node.js & npm
-- PHP 8 & Composer
-- MySQL & MongoDB
-- Laravel 10
-
-### **Backend (Laravel)**
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/ai-text-detector.git
-   cd ai-text-detector/backend
-   ```
-2. Install dependencies:
-   ```bash
-   composer install
-   ```
-3. Configure environment variables:
-   ```bash
-   cp .env.example .env
-   php artisan key:generate
-   ```
-4. Set up database:
-   ```bash
-   php artisan migrate
-   ```
-5. Serve the application:
-   ```bash
-   php artisan serve
-   ```
-
-### **Frontend (React)**
+### Execution**
+1. page d'accueil
 ![Home Page](./screens/home.jpg)
 
 ## Contributors
