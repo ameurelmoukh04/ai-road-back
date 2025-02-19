@@ -74,7 +74,7 @@ class TextController extends Controller
                 ['role' => 'user', 'content' => $prompt],
             ],
         ]);
-        return response()->json(['data' => '','content' => $content]);
+        return response()->json(['data' => $result->choices[0]->message->content,'content' => $content]);
 
     }
 }

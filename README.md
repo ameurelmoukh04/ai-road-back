@@ -1,37 +1,43 @@
 # AI Text Detector
 
-## Overview
-AI Text Detector is a web application that allows users to detect AI-generated text from various sources. It supports PDF file uploads, text input, and provides limited free usage for new users before authentication. The app is built with **Laravel (backend)** and **React (frontend)** using **MongoDB** and **MySQL** for data storage. Authentication is handled via **Laravel Sanctum**.
+## Présentation
 
-## Features
-### **Core Functionalities**
-- **AI-Generated Text Detection**: Analyze input text to determine if it is AI-generated.
-- **Free Limited Usage**: New users can test the AI detection feature three times before authentication is required.
-- **PDF Import & Export**:
+AI Text Detector est une application Web qui permet aux utilisateurs de détecter du texte généré par l'IA à partir de diverses sources. Elle prend en charge les téléchargements de fichiers PDF et l'authentification des Utilisateurs. L'application est conçue avec Laravel (backend) et React (frontend) en utilisant MySQL pour le stockage des données.
+
+## Fonctionnalités
+
+### **Fonctionnalités principales**
+- **Détection de texte générée par l'IA**: analysez le texte saisi pour déterminer s'il est généré par l'IA.
+- **Utilisation limitée gratuite**: les nouveaux utilisateurs peuvent tester la fonction de détection de l'IA n'importe quelle fois mais pour scanner des Pdf l'authentification sera requise.
+- **Importer PDF**:
   - Upload PDF files containing text for AI analysis.
-  - Extract text from PDFs using **smalot/pdfparser** in Laravel.
-  - Export results to PDF using **dompdf**.
-- **Authentication & User Management**:
-  - Secure login and registration with Laravel Sanctum.
-  - Role-based access control for users and admins.
-  - API authentication for protected routes.
+  - Téléchargez des fichiers PDF contenant du texte pour une analyse par l'IA.
+  - Extraire du texte à partir de PDF à l'aide de **smalot/pdfparser** dans Laravel.
 
-### **Frontend (React)**
-- **React with Redux Toolkit** for state management.
-- **React Router DOM** for navigation.
-- **Tailwind CSS** for responsive UI design.
-- **File Upload System** using `useForm` from `react-hook-form` and `axios`.
-- **PDF Processing**:
-  - Upload PDFs and send them to the backend.
-  - Display extracted text and allow exporting results.
+- **Authentification et gestion des utilisateurs :**:
+
+  - Connexion et inscription sécurisées.
+  - Contrôle d'accès basé sur les rôles pour les utilisateurs et les administrateurs.
+
+### **Frontend (React)** 
+- **React Router DOM** pour la navigation.
+- **Tailwind CSS** pour la conception des interfaces.
+- **Système de téléchargement de fichiers** utilisand `useForm` de `react-hook-form` et `axios`.
+- **Traitement PDF**:
+  - Téléchargez des fichiers PDF et envoyez-les au backend.
+  - Affichez le texte extrait et autorisez l'exportation des résultats.
 
 ### **Backend (Laravel)**
-- **API Routes in `api.php`** for handling requests.
-- **MySQL Database** for user authentication and analytics.
-- **MongoDB** for storing text data and AI analysis results.
-- **PDF Text Extraction** using `smalot/pdfparser`.
-- **PDF Generation** using `dompdf`.
-- **AI Text Detection Algorithm** (can integrate with OpenAI API or custom model).
+- **API Routes dans `api.php`** pour gérer les requêtes.
+- **MySQL Base De Donee** pour stockage des donnee.
+- **PDF Text Extraction** a l'aide du package `smalot/pdfparser`.
+- **Algorithme de détection de texte IA** (l'intégration avec l'API OpenAI gpt-3.5-turbo).
+
+
+
+### **
+
+
 
 ## Installation & Setup
 ### **Requirements**
@@ -65,44 +71,7 @@ AI Text Detector is a web application that allows users to detect AI-generated t
    ```
 
 ### **Frontend (React)**
-1. Navigate to the frontend directory:
-   ```bash
-   cd ../frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
-   ```bash
-   npm start
-   ```
-
-## API Endpoints
-### **User Authentication**
-- `POST /api/register` - Register a new user.
-- `POST /api/login` - Authenticate user and return token.
-- `POST /api/logout` - Logout user.
-
-### **AI Text Detection**
-- `POST /api/detect` - Submit text for AI analysis.
-- `POST /api/upload-pdf` - Upload a PDF file and extract text.
-
-### **Admin Dashboard**
-- `GET /api/dashboard` - Retrieve analytics (new users, total submissions, etc.).
-- `GET /api/users` - Manage users.
-
-## Future Enhancements
-- **AI Model Integration**: Improve accuracy using OpenAI, Hugging Face, or custom NLP models.
-- **User Dashboard**: View history of analyzed texts.
-- **Subscription Model**: Introduce premium plans for extended usage.
-
-## License
-This project is open-source under the MIT License.
+1. C:\Users\ameur\Desktop\projet screens\75fcc7f4-423f-42cd-86f0-8d8054acd003.jpg
 
 ## Contributors
-- **Ameur** - [LinkedIn](https://linkedin.com/in/yourprofile) | [Fiverr](https://www.fiverr.com/yourgig)
-
-## Contact
-For inquiries or collaborations, feel free to reach out via email: your-email@example.com
-
+- **Ameur**
