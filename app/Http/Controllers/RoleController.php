@@ -8,12 +8,16 @@ use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
-    public function assignRole(Request $request)
+    public function assignRole(User $user)
     {
-        $user = User::find($request->user_id);
-        $role = Role::find($request->role_id);
+        $user = User::find($user->id);
+        $role = Role::where('id', 1)->first();
 
-        $user->roles()->attach($role);
-        return response()->json(['message' => 'Role assigned successfully']);
+        if($role){
+            $user->roles()->attach($role->id);
+
+            return response()->json(['message' => 'Role assigned successfully']);
+        }
+
     }
 }

@@ -27,6 +27,8 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
         $token = $user->createToken('authToken')->plainTextToken;
+        $roleController = new RoleController();
+        $roleController->assignRole($user);
         return response()->json(['message' => 'registered Succesfully', 'user' => $user, 'token' => $token], 201);
     }
 

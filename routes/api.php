@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\TextController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -12,7 +13,8 @@ Route::get('/', [TextController::class, 'index']);
 
 
 Route::post('/check', [TextController::class, 'check']);
-Route::post('/scan', [TextController::class, 'scan']);
+
+Route::middleware('auth:sanctum')->post('/scan', [PdfController::class, 'scan']);
 
 
 Route::middleware('auth:sanctum')->post('/logout', [UserController::class, 'logout']);
