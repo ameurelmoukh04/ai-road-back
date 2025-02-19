@@ -58,13 +58,13 @@ AI Text Detector est une application Web qui permet aux utilisateurs de détecte
 7. Page Authentification : Register
 ![Home Page](./screens/register.jpg)
 
-7. Page Scan Pdf
+8. Page Scan Pdf
 ![Home Page](./screens/scan-1.jpg)
 
-7. Page Scan Pdf apres telecharger fichier
+9. Page Scan Pdf apres telecharger fichier
 ![Home Page](./screens/scan-3.jpg)
 
-7. Page Scan Pdf
+10. Page Scan Pdf
 ![Home Page](./screens/scan-2.jpg)
 
 ## Contributors
