@@ -42,9 +42,9 @@ Ce projet respecte les critères demandés:
   - Une relation **n,n**, est la relation entre Users et roles dont il exist une table intermidiaire.  
 - [x] **Middleware** ,J'ai Utilisee Le middleware 'auth:Sanctum' pour verifier l'authentification.  
 - [x] **Validation des formulaires**, chaque text et chaque pdf telecharger par l'utilisateur a une verification cote-backend.  
+- [x] **un bouton de génération de rapport en PDF**, le projet a l'option de travailer avec les PDF , mais l'utilisateur peut telecharger un pdf contient un text, pas la generation necessairement.  
 - [x] **Gestion des vues avec Blade**, le front-end a ete cree avec React js. 
-- [x] **Système d'authentification** , un system qui permet d'utilisateurs de creer ou acceder a ses comptes personnels.  
-- [x] **Test unitaire** sur au moins un contrôleur.  
+- [x] **Système d'authentification** , un system qui permet d'utilisateurs de creer ou acceder a ses comptes personnels.
 
 ### Execution**
 
