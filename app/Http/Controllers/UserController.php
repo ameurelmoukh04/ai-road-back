@@ -47,10 +47,10 @@ class UserController extends Controller
         $token = $user->createToken('authToken')->plainTextToken;
 
         return response()->json([
-            'message' => 'logged in succesfully',
             'user' => $user,
+            'roles' => $user->roles()->pluck('name'),
             'token' => $token
-        ],200);
+        ]);
     }
 
     public function logout(Request $request){
@@ -58,7 +58,7 @@ class UserController extends Controller
 
         if($user){
             $user->tokens()->delete();
-            return response()->json(['message' => 'deleted succesfully'],200);
+            return response()->json(['message' => 'logged out succesfully'],200);
         }
         return response()->json(['message' => 'you are not Authenticated'],401);
     }
@@ -66,5 +66,9 @@ class UserController extends Controller
     public function getUserTexts($userId)
     {
         return User::with('texts')->find($userId);
+    }
+
+    public function admin(){
+        return response()->json(['message' => 'Admin Dashboard']);
     }
 }
