@@ -11,12 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('pdf', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            
+            $table->string('filename');
+            $table->string('content');
+            $table->string('result');
             $table->timestamps();
         });
-        
     }
 
     /**
@@ -24,8 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('roles', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('pdf');
     }
 };
