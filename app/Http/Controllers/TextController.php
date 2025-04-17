@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pdf;
 use App\Models\Text;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator as FacadesValidator;
+use League\CommonMark\Extension\SmartPunct\EllipsesParser;
 use OpenAI\Laravel\Facades\OpenAI;
 use Smalot\PdfParser\Parser;
 use Validator;
@@ -38,12 +40,12 @@ class TextController extends Controller
             ],
         ]);
 
-        if(Auth::check()){
+        if (Auth::check()) {
             $id = Auth::id();
             $text = new Text();
             $text->user_id = $id;
             $text->content = $request->content;
-            
+
             if (isset($result->choices[0]->message->content)) {
                 $text->result = $result->choices[0]->message->content;
             } else {
@@ -51,22 +53,24 @@ class TextController extends Controller
             }
             $text->save();
 
-            $history = Text::where('user_id',$id)->get();
-            return response()->json(['data' => $result->choices[0]->message->content,
-                                    'userId'=> $id  ,
-                                    'history'=> $history             
-        ]);
-
-            }
+            $history = Text::where('user_id', $id)->get();
+            return response()->json([
+                'data' => $result->choices[0]->message->content,
+                'userId' => $id,
+                'history' => $history
+            ]);
+        }
 
 
 
         return response()->json(['data' => $result->choices[0]->message->content]);
     }
 
-    public function scan(Request $request){
+    public function scan(Request $request)
+    {
         $file = $request->file('pdf');
-        $path= $request->file('pdf')->store('pdfs');
+        $path = $request->file('pdf')->store('pdfs');
+        $id = Auth::user()->id;
         $parser = new Parser();
         $pdf = $parser->parseFile($file->getPathname());
         $content = $pdf->getText();
@@ -81,9 +85,23 @@ class TextController extends Controller
                 ['role' => 'user', 'content' => $prompt],
             ],
         ]);
-        return response()->json(['data' => $result->choices[0]->message->content,'content' => $content]);
 
+        $pdf = new Pdf();
+        $pdf->user_id = $id;
+        $pdf->filename = $file->getClientOriginalName();
+        $pdf->content = $content;
+        if (isset($result->choices[0]->message->content)) {
+            $pdf->result = $result->choices[0]->message->content;
+        } else {
+            $pdf->result = 'no result';
+        }
+        $pdf->save();
+
+        return response()->json([
+            'data' => $result->choices[0]->message->content,
+            'content' => $content,
+            'filename' => $file->getClientOriginalName(),
+            'user_id' => $id
+        ]);
     }
-
-
 }

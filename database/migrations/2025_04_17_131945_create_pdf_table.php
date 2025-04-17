@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pdf', function (Blueprint $table) {
+        Schema::create('pdfs', function (Blueprint $table) {
             $table->id();
             
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->on('users')->references('id')->onDelete('cascade');
             
-            $table->string('filename');
-            $table->string('content');
+            $table->string('filename')->nullable();
+            $table->string('path')->nullable();
+            $table->longText('content')->nullable();
             $table->string('result');
             $table->timestamps();
         });

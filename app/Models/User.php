@@ -29,15 +29,10 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Text::class);
     }
 
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class);
-    }
-    public function hasRole($role){
-        return $this->roles()->where('name', $role)->exists();
-    }
-    public function getId(){
-        return $this->id;
+    
+    
+    public function pdfs(){
+        return $this->hasMany(Pdf::class);
     }
     /**
      * The attributes that should be hidden for serialization.
