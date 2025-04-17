@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ImageGenerationController;
 use App\Http\Controllers\PdfController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TextController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,13 +20,19 @@ Route::get('/', [TextController::class, 'index']);
 
 Route::post('/check', [TextController::class, 'check']);
 
-Route::get('/history', [HistoryController::class, 'history'])->middleware('auth:api');
+Route::get('/history/text', [HistoryController::class, 'historyText'])->middleware('auth:api');
+Route::get('/history/pdf', [HistoryController::class, 'historyPdf'])->middleware('auth:api');
 Route::get('/history/show', [HistoryController::class, 'show']);
+
+Route::delete('/history/delete', [HistoryController::class, 'history']);
 
 
 Route::post('/scan', [TextController::class, 'scan']);
 
 Route::post('/image/generate', [ImageGenerationController::class, 'generateImage']);
+
+
+Route::post('/profile', [ProfileController::class, 'profile']);
 
 
 

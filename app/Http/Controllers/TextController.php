@@ -68,9 +68,11 @@ class TextController extends Controller
 
     public function scan(Request $request)
     {
-        $file = $request->file('pdf');
-        $path = $request->file('pdf')->store('pdfs');
         $id = Auth::user()->id;
+
+        $file = $request->file('pdf');
+        $path = $request->file('pdf')->store('users/'. $id .'/pdfs', 'public');
+
         $parser = new Parser();
         $pdf = $parser->parseFile($file->getPathname());
         $content = $pdf->getText();
@@ -90,6 +92,7 @@ class TextController extends Controller
         $pdf->user_id = $id;
         $pdf->filename = $file->getClientOriginalName();
         $pdf->content = $content;
+        $pdf->path = $path;
         if (isset($result->choices[0]->message->content)) {
             $pdf->result = $result->choices[0]->message->content;
         } else {
