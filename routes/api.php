@@ -5,6 +5,7 @@ use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ImageGenerationController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\TextController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +15,10 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:api');
 Route::post('/refresh', [AuthController::class, 'refresh'])->middleware('auth:api');
+
+Route::get('auth', [SocialiteController::class, 'redirectToGoogle']);
+Route::post('auth/google/callback', [SocialiteController::class, 'handleGoogleCallback']);
+
 
 Route::get('/', [TextController::class, 'index']);
 

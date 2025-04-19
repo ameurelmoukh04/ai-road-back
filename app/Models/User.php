@@ -23,6 +23,9 @@ class User extends Authenticatable implements JWTSubject
         'name',
         'email',
         'password',
+        'role',
+        'social_id',
+        'social_type'
     ];
     public function texts()
     {
