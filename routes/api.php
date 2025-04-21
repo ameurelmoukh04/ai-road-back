@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ImageGenerationController;
 use App\Http\Controllers\PdfController;
@@ -18,6 +19,16 @@ Route::post('/refresh', [AuthController::class, 'refresh'])->middleware('auth:ap
 
 Route::get('auth', [SocialiteController::class, 'redirectToGoogle']);
 Route::post('auth/google/callback', [SocialiteController::class, 'handleGoogleCallback']);
+
+Route::get('/checkout', CheckoutController::class);
+
+Route::get('thankyoupage',function (){
+    return response()->json('thank you for subscribing');
+})->name('thankyoupage');
+
+Route::get('cancel',function (){
+    return response()->json('canceled');
+})->name('cancel');
 
 
 Route::get('/', [TextController::class, 'index']);
