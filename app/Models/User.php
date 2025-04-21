@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasApiTokens, Notifiable,HasFactory;
@@ -22,18 +23,19 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'social_id',
+        'social_type'
     ];
     public function texts()
     {
         return $this->hasMany(Text::class);
     }
 
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class);
-    }
-    public function hasRole($role){
-        return $this->roles()->where('name', $role)->exists();
+    
+    
+    public function pdfs(){
+        return $this->hasMany(Pdf::class);
     }
     /**
      * The attributes that should be hidden for serialization.
@@ -44,6 +46,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
 
     /**
      * Get the attributes that should be cast.
@@ -56,5 +59,11 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function getJWTCustomClaims(){
+        return [];
+    }
+    public function getJWTIdentifier(){
+        return $this->getKey();
     }
 }

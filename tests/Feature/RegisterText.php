@@ -13,7 +13,7 @@ class RegisterText extends TestCase
      */
     public function register_user(): void
     {
-        $response = $this->postJson('/api/register', [
+        $response = $this->postJson('/api/regis*ter', [
             'name' => 'test User',
             'email' => 'testemail@gmail.com',
             'password' => 'testpass'
