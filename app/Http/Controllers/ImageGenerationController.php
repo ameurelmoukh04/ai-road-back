@@ -2,23 +2,48 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use OpenAI\Laravel\Facades\OpenAI;
 
 class ImageGenerationController extends Controller
 {
-    public function generateImage()
+    public function generateImage(Request $request)
     {
-        // $result = OpenAI::images()->create([
-        //     'prompt' => 'A futuristic city floating in the sky',
-        //     'n' => 1,
-        //     'size' => '512x512',
-        // ]);
+        $prompt = $request->prompt;
+        $size = $request->size;
 
-        Storage::disk('public')->put('firstFile', 'empty');
-        return response()->json(['message'=>'file saved']);
+        $id = Auth::id();
 
+        $result = OpenAI::images()->create([
+            //'model' => 'dall-e-3',
+            'prompt' => $prompt,
+            'n' => 1,
+            'size' => $size,
+        ]);
+
+        $imageContent = Http::get($result['data'][0]['url'])->body();
+        $filename = 'image_' . time() . '.png';
+        $path = 'users/' . $id . '/images/' . $filename;
+        
+        Storage::disk('public')->put($path, $imageContent);
+
+        $newImage = new Image();
+        $newImage->user_id= $id;
+        $newImage->prompt= 'real pc photo';
+        $newImage->size = $size;
+        $newImage->path = $path;
+        $newImage->save();
+
+        return response()->json([
+            'message' => 'saved',
+            'user_id' => $id,
+            'filename' => $filename,
+            'path' => $path
+        ]);
         //return $result->data[0]->url;
     }
 }
